@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+
+* {    
+    font-weight: 400;
+    font-family: 'Press Start 2P', cursive;
+    list-style: none; 
+    /* background-color: #006400;    */  
+    max-width: 400px;   
+    margin: 0;
+}
+
+
+body {
+    position: relative;   
+    /* background-image: url(/assets/rps/img/backgroundimg.jpg);   */
+    background-color: black;
+    color: seashell;
+    background-size: auto;
+    background-position: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;    
+
+    
+    
+}
+/* body:after {
+    position: absolute;
+    content: "";
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: 0.3;
+    background-image: url(/assets/rps/img/backgroundimg.jpg);    
+    background-size: auto;
+    background-position: center;
+    
+} */
+
+
+    
+
+
+/* TITULO GERAL */
+.maintitle{ 
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-size: 30px;   
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+h2{
+    text-align: center;
+    margin: 5px;
+}
+.rules{
+    margin:0 auto;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+/* PLACAR PEDRA, PAPEL, TESOURA */
+.score {
+    display: flex;
+    align-items: center;      
+    margin: 0; 
+    background-color: rgb(36, 36, 36);
+    opacity: 0.9;       
+    margin-top: 60px;
+    margin: 20px;    
+}
+
+    /* JOGADOR */
+    .player {        
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 10px;        
+    }
+
+        .player h2 {
+            text-align: center;  
+            font-size: 18px;   
+            justify-content: flex-start;          
+        }
+
+        .player span{                      
+            background-color: red;
+            padding: 3px;              
+            border-radius: 50%;
+            height: 15px;
+            width: 14px;         
+        }
+
+        .player ul {
+            padding: 0;
+        }
+
+    /* COMPUTADOR */
+    .computer {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+        .computer h2 {
+            text-align: center;  
+            font-size: 18px;                         
+        }
+
+        .computer span{
+            background-color: red;
+            padding: 3px;              
+            border-radius: 50%;
+            height: 15px;
+            width: 14px; 
+            margin-right: 8px;        
+        }
+
+        .computer ul {
+            padding: 0;
+        }
+
+    /* INTERFACE VERSUS */
+    .versus {        
+        text-align: center;
+        font-size: 30px; 
+        background-color: red;    
+        width: 75px;
+        border-radius: 50%;
+        height: 33px;       
+    }
+
+.alert {
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    padding: 0;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+}
+
+/* DESKTOP */
+
+@media screen and (min-width: 1024px) {
+    
+    *{
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    body {
+        background-color: black;
+        color: seashell;
+        background-size: auto;
+        background-position: center;
+        min-width: 100vw;
+        min-height: 100vh;
+        margin: 0; 
+    }
+
+    .maintitle h1 {
+        text-align: center;
+        
+    }
+
+    .score {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+    }
+    .player h2 {
+        display: flex;
+        justify-content: center; 
+        font-size: 50px;       
+    }
+
+    .player {
+        display: flex;
+        align-items: center;        
+        flex-direction: column;
+    }
+            .player span{                      
+            background-color: red;
+            padding: 3px;              
+            border-radius: 50%;
+            height: 15px;
+            width: 14px;         
+        }
+            .player ul {
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+                margin-top: 50px;
+            }
+
+            .player ul li img {
+                width: 12rem;
+            }
+
+            .player span {
+                border-radius: 50%;
+                height: 20px;
+                width: 20px; 
+                padding: 5px;
+                text-align: center;
+            }
+
+    .computer{
+        display: flex;
+        align-items: center;        
+        flex-direction: column;
+    }
+
+        .computer ul {
+            padding: 0;
+            display: flex;
+            flex-direction: row;
+            margin-top: 50px;
+        }
+
+        .computer ul li img {
+            width: 12rem;
+        }
+
+        .computer span {
+            border-radius: 50%;
+            height: 20px;
+            width: 20px; 
+            padding: 5px;
+            text-align: center;
+        }
+
+    .versus {
+        margin: 0 120px 0 120px;
+        width: 195px;
+        border-radius: 50%;
+        height: 123px;
+        font-size: 70px;
+        padding-top: 45px;  
+        
+    }
+    
+        .ppt h2{ 
+        text-align: center;
+        font-size: 22px;       
+        
+    }
+
+        .ppt ul {
+            text-align: center;
+            font-size: 14px
+        }
+
+
+    .alert {
+        height: 100px;
+        font-size: 24px;
+        margin: 20px;  
+        padding: 10px;     
+    }
+
+
+}
+
