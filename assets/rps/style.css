@@ -9,7 +9,9 @@
     max-width: 400px;   
     margin: 0;
 }
-
+.musicPlayer{
+    opacity: 0.01;
+}
 
 body {
     position: relative;   
