@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <title>MyGames</title>
+    <title>ROCK, PAPER OR SCISSOR?</title>
 </head>
 <body>
     <section class="transparent">
@@ -29,9 +29,9 @@
                         <span class="player-score" id="playerScore">0</span> <!-- PONTUAÇÃO DO JOGADOR -->
 
                         <ul class="player-choice"> <!-- ESCOLHA DO JOGADOR -->
-                            <li><img src="img/pedra.png" onclick="playSelectRock()"></li> <!-- PEDRA -->
-                            <li><img src="img/papel.png" onclick="playSelectPaper()"></li> <!-- PAPEL -->
-                            <li><img src="img/tesoura.png" onclick="playSelectScissor()"></li> <!-- TESOURA -->
+                            <li><img src="img/pedra.png" onclick="playSelectRock()" id="playerSelectRock"></li> <!-- PEDRA -->
+                            <li><img src="img/papel.png" onclick="playSelectPaper()" id="playerSelectPaper"></li> <!-- PAPEL -->
+                            <li><img src="img/tesoura.png" onclick="playSelectScissor()" id="playerSelectScissor"></li> <!-- TESOURA -->
                         </ul>
                     </div>
 
@@ -42,9 +42,9 @@
                         <span class="computer-score" id="cpuScore">0</span> <!-- PONTUAÇÃO CPU -->
 
                         <ul class="computer-choice"> <!-- ESCOLHA DA CPU -->
-                            <li><a class="computer-choice-1"><img src="img/pedra.png"></a></li> <!-- PEDRA -->
-                            <li><a class="computer-choice-2"><img src="img/papel.png"></a></li> <!-- PAPEL -->
-                            <li><a class="computer-choice-3"><img src="img/tesoura.png"></a></li> <!-- TESOURA -->
+                            <li><img src="img/pedra.png" id="cpuSelectRock"></li> <!-- PEDRA -->
+                            <li><img src="img/papel.png" id="cpuSelectPaper"></li> <!-- PAPEL -->
+                            <li><img src="img/tesoura.png" id="cpuSelectScissor"></li> <!-- TESOURA -->
                         </ul>
                     </div>
 
@@ -55,26 +55,16 @@
         </div>
     </section>
     <audio src="/assets/music/music.ogg" autoplay controls></audio>
-    <!-- <section>
-        <div>
-            <h1>Rock, Paper, Scissors (Pedra, papel e tesoura)</h1>
-            <article> 
-                "Este game consiste em selecionar uma opção: Pedra, papel ou tesoura e aguardar a opção selecionada pelo CPU"
-                <ul><h2>Regras básicas do game:</h2>
-                    <li>Papel sempre vence pedra;</li>
-                    <li>Pedra sempre vence a tesoura;</li>
-                    <li>Tesoura sempre vence o papel;</li>
-                </ul>   
-                Simples não !? Então que comecem os jogos...
-            </article> 
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="victory">message</p>
         </div>
-        <div>
-            <p id="cpuPlays">Cpu está escolhendo ...</p>
-            <input type="button" value="Pedra" id="buttonRock">
-            <input type="button" value="Papel" id="buttonPaper">
-            <input type="button" value="Tesoura" id="buttonScissors">
-        </div> 
-    </section> -->
+      
+      </div>
     <script src="games-rps.js"></script>
 </body>
 </html>

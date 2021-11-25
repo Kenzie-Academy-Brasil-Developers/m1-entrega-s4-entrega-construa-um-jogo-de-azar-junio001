@@ -1,11 +1,70 @@
-table{
-    width:600px;
-    height:600px;
-    border: 1px solid #000;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap");
+
+body {
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  list-style: none;
+  font-size: 13px;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+h1,
+h2 {
+  width: 80%;
+  max-width: 300px;
+  margin: 0 auto 23px auto;
+}
+h1:hover,
+h2:hover {
+  color: white;
+  text-shadow: #480000 2px 2px 0px, #9c9c9c 4px 4px 0px;
+}
+.myList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  max-width: 300px;
+  margin: 30px auto 0 auto;
+}
+button {
+  margin-top: 23px;
+}
+table {
+  width: 80%;
+  max-width: 300px;
+  height: 300px;
+  border: 1px solid #000;
+  margin: 30px auto 20px auto;
 }
 td {
-    width:10%;
-    height:10%;
-    border: 1px solid #000;
-    text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  width: 10%;
+  height: 10%;
+  border: 1px solid #000;
+  vertical-align: middle;
+  cursor: pointer;
+  font-weight: bold;
+}
+.red {
+  background-color: red;
+}
+.player{
+    opacity: 0.01;
 }

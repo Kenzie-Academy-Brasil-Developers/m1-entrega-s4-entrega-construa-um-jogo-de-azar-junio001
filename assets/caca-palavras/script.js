@@ -1,3 +1,14 @@
+let table = [];
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+for (let i = 0; i < 10; i++) {
+    table.push([])
+}
+for (let i = 0; i < table.length; i++) {
+    for (let j = 0; j < 10; j++) {
+        table[i].push(alphabet[Math.floor(Math.random() * alphabet.length)]);
+    }
+}
+
 let words = [
     'PEIXE',
     'BATATA',
@@ -20,67 +31,48 @@ let words = [
     'MINAS',
     'LEONCIO'
 ];
-//Vai retornar 3 palavras randomicas
+
 let word1 = words[Math.floor(Math.random() * words.length)];
 let word2 = words[Math.floor(Math.random() * words.length)];
 let word3 = words[Math.floor(Math.random() * words.length)];
-//Validar para que nao haja repetição de palavra
 if (word1 == word2) {
     word2 = words[Math.floor(Math.random() * words.length)];
 }
 if (word3 == word2 || word3 == word1) {
     word3 = words[Math.floor(Math.random() * words.length)];
 }
-//Retorna as palavras de word 1 2 e 3 splitadas
+
+const replyWord1 = document.getElementById("word01");
+replyWord1.innerText = word1;
+const replyWord2 = document.getElementById("word02");
+replyWord2.innerText = word2;
+const replyWord3 = document.getElementById("word03");
+replyWord3.innerText = word3;
+
 let wordArray = word1.split('');
 let wordArray2 = word2.split('');
 let wordArray3 = word3.split('');
 
-
-
-//timer do game com função de resetar
-
-function myTimer(duration, display) {
-    let timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
-        display.textContent = "Você tem exatos: " + minutes + ":" + seconds;
-        if (--timer < 0) {
-            timer = duration;
-            alert('Desculpe seu tempo acabou, gerando outro jogo');
-            window.onload(startTimer);
-        }
-    }, 1000);
-}
+let line = null;
+let line1 = null;
+let line2 = null;
 //criar o caça palavras
-function createWordFind() {    
-    let table = [];
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    for (let i = 0; i < 10; i++) {
-        table.push([])
-    }
-    for (let i = 0; i < table.length; i++) {
-        for (let j = 0; j < 10; j++) {
-            table[i].push(alphabet[Math.floor(Math.random() * alphabet.length)]);
-        }
-    }
+function createWordFind() {
+
     //criar o caça palavras
 
     //adicionar palavras na tabela
-    let line = table[Math.floor(Math.random() * table.length)];
+    line = table[Math.floor(Math.random() * table.length)];
 
-    let line1 = table[Math.floor(Math.random() * table.length)];
+    line1 = table[Math.floor(Math.random() * table.length)];
 
-    let line2 = table[Math.floor(Math.random() * table.length)];
-   
+    line2 = table[Math.floor(Math.random() * table.length)];
+
     while (line == line1) {
         line1 = table[Math.floor(Math.random() * table.length)];
-    }  
+    }
     while (line2 == line1 || line2 == line) {
-        line1 = table[Math.floor(Math.random() * table.length)];
+        line2 = table[Math.floor(Math.random() * table.length)];
     }
 
 
@@ -115,8 +107,8 @@ function createWordFind() {
         line2[letterPlace2] = wordArray3[i];
         letterPlace2 += 1
     }
-
     //adicionar palavras na tabela
+
     //imprime no document
     const cel = document.getElementsByTagName('td');
     let letters = [];
@@ -130,109 +122,141 @@ function createWordFind() {
         cel[i].innerText = letters[i]
     }
 
+
+
+
     //imprime no document
 
 }
 
-// validação do encontro da palavra
-
-const tabela = document.getElementById('table');
-
-let geralPoint = 0;
-let points1 = 0;
-
-function isAVictory(){
-    if(geralPoint === 3){
-        alert('Parabéns você venceu!');
-    }
-}
-
-function validation1(event) {
-    let target = event.target.innerText;    
-    let includes = wordArray.includes(target);
-    
-    if (points1 === wordArray.length -1){
-        points1 = 0;
-        geralPoint++;
-        isAVictory();
-        
-    }
-
-    if (includes === true) {
-        points1++;
-    }
-   
-    else{
-        points1 = 0;
-    }
-
-    console.log(points1)
-}
-
-let points2 = 0;
-
-function validation2(event) {
-    let target = event.target.innerText;    
-    let includes = wordArray2.includes(target);
-    
-    if (points2 === wordArray2.length -1){
-        points2 = 0;
-        geralPoint++;
-        isAVictory();
-                
-    }
-
-    if (includes === true) {
-        points2++;
-    }
-   
-    else{
-        points2 = 0;
-    }
-
-    console.log(points2)
-}
-
-let points3 = 0;
-
-function validation3(event) {
-    let target = event.target.innerText;    
-    let includes = wordArray3.includes(target);
-    
-    if (points3 === wordArray3.length -1){
-        points3 = 0;
-        geralPoint++;
-        isAVictory();
-       
-    }
-
-    if (includes === true) {
-        points3++;
-    }
-   
-    else{
-        points3 = 0;
-    }
-
-    console.log(points3)
-}
-const play = document.querySelector('#play')
-
-// iniciando o timer ao carregamento (mudar pra o botão iniciar o GAME ?)
-function startTimer(){
-    let duration = 60 * 1;
-    display = document.querySelector('#timer');
-    myTimer(duration, display); 
-}
-
-
-
-tabela.addEventListener('click', validation1)
-
-tabela.addEventListener('click', validation2)
-
-tabela.addEventListener('click', validation3)
-
-play.addEventListener('click', startTimer, createWordFind)
+//Validação
 
 createWordFind();
+const tabela = document.getElementById('table');
+
+
+let i = 0
+let points = 0;
+let totalPoints = 0;
+let colunaWord = line.indexOf(wordArray[0]);
+let linhaWord = table.indexOf(line);
+function validation(event) {
+    let target = event.target;
+    let linhaClick = target.parentElement.rowIndex;
+    let celClick = target.cellIndex;
+
+
+
+
+
+    console.log(celClick);
+    console.log(colunaWord);
+    console.log(i)
+    console.log('===============')
+    if (celClick == colunaWord && linhaClick == linhaWord) {
+
+        colunaWord++
+        points++;
+        target.classList.add('red')
+        if (points == wordArray.length) {
+            totalPoints++
+            console.log('achei1')
+        }
+    }
+    console.log(line)
+
+    vitoria()
+
+}
+
+
+
+let points1 = 0;
+
+let colunaWord1 = line1.indexOf(wordArray2[0]);
+let linhaWord1 = table.indexOf(line1);
+function validation1(event) {
+    let target = event.target;
+    let linhaClick = target.parentElement.rowIndex;
+    let celClick = target.cellIndex;
+
+
+
+
+
+    console.log(celClick);
+    console.log(colunaWord1);
+    console.log('===============')
+    if (celClick == colunaWord1 && linhaClick == linhaWord1) {
+
+        colunaWord1++
+        points1++;
+        target.classList.add('red')
+        if (points1 == wordArray2.length) {
+            totalPoints++
+            console.log('achei2')
+        }
+    }
+    console.log(line1)
+
+    vitoria()
+
+}
+
+
+
+let points2 = 0;
+let colunaWord2 = line2.indexOf(wordArray3[0]);
+let linhaWord2 = table.indexOf(line2);
+function validation2(event) {
+    let target = event.target;
+    let linhaClick = target.parentElement.rowIndex;
+    let celClick = target.cellIndex;
+
+
+
+
+
+    console.log(celClick);
+    console.log(colunaWord2);
+    console.log('===============')
+    if (celClick == colunaWord2 && linhaClick == linhaWord2) {
+
+        colunaWord2++
+        points2++;
+        target.classList.add('red')
+        if (points2 == wordArray3.length) {
+            totalPoints++
+            console.log('achei3')
+        }
+    }
+    console.log(line2)
+
+    vitoria()
+}
+
+
+tabela.addEventListener('click', function (event) {
+    let target = event.target
+    if (target.cellIndex == colunaWord && target.parentElement.rowIndex == linhaWord) {
+        validation(event)
+    } else if (target.cellIndex == colunaWord1 && target.parentElement.rowIndex == linhaWord1) {
+        validation1(event)
+    } else if (target.cellIndex == colunaWord2 && target.parentElement.rowIndex == linhaWord2) {
+        validation2(event)
+    }
+})
+
+function vitoria() {
+    if (totalPoints === 3) {
+        alert('ganhou')
+    }
+}
+/*console.log(table.indexOf(line))
+console.log(line)
+console.log(line.indexOf(wordArray[0]))
+console.log(table.indexOf(line1))
+console.log(line1)
+console.log(line1.indexOf(wordArray2[0]))
+console.log(table.indexOf(line2))
+console.log(line2)*/

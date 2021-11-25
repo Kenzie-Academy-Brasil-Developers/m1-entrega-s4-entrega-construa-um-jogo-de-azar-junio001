@@ -1,7 +1,7 @@
 // Banco de Dados de Rock, Paper, Cissors
 const cpuPlays = ["Pedra!","Papel!","Tesoura!"];
 const humanPlays = ["Pedra!","Papel!","Tesoura!"];
-const resultOfGame = ["Você venceu !","Você perdeu...", "Deu empate :("];
+const resultOfGame = [" Você me venceu!"," Você perdeu...", "Deu empate :("];
 
 // variaveis mutáveis globais
     let pickCpu = [];
@@ -10,18 +10,48 @@ const resultOfGame = ["Você venceu !","Você perdeu...", "Deu empate :("];
     let scorePlayer = 0;
     let scoreCpu = 0;
     
+// Nosso Modal
+
+    const modal = document.getElementById("myModal");
+
+
+// Get the <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+
+
+    
+    
+
+// When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+// When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    }
+
 
 
 // I.A. da nossa CPU
 function cpuAnswer(){
-    let randomize = Math.floor(Math.random() * (4 - 1)) +1;
+    document.getElementById("cpuSelectRock").style.opacity = "0.1";
+    document.getElementById("cpuSelectPaper").style.opacity = "0.1";
+    document.getElementById("cpuSelectScissor").style.opacity = "0.1";
+    let randomize = Math.floor(Math.random() * ( 3 )) +1;
     if(randomize === 1){
+        document.getElementById("cpuSelectRock").style.opacity = "1";
         pickCpu.push(cpuPlays[0]);
     }
     else if(randomize === 2){
+        document.getElementById("cpuSelectPaper").style.opacity = "1";
         pickCpu.push(cpuPlays[1]);
     }
     else{
+        document.getElementById("cpuSelectScissor").style.opacity = "1";
         pickCpu.push(cpuPlays[2]);
     }
 }
@@ -40,7 +70,9 @@ function scorePlusCpu(){
 }
 function scorePlusTotal(){      
     if(scorePlayer === 3){
-        alert('Você venceu...parabéns !');
+        modal.style.display = "block";
+        const playerWins = document.getElementById("victory")
+        playerWins.innerText = 'Parabéns humano...Você é bom...'
         let alteraPlacarPlayer = document.getElementById("playerScore")
         alteraPlacarPlayer.innerText = 0;
         let alteraPlacarCpu = document.getElementById("cpuScore")
@@ -49,7 +81,9 @@ function scorePlusTotal(){
         scoreCpu = 0;
     }
     else if(scoreCpu === 3){
-        alert('Você perdeu...tente novamente!');
+        modal.style.display = "block";
+        const playerWins = document.getElementById("victory")
+        playerWins.innerText = 'HaHaHa...Lido como um livro!'
         let alteraPlacarCpu = document.getElementById("cpuScore")
         alteraPlacarCpu.innerText = 0;
         let alteraPlacarPlayer = document.getElementById("playerScore")
@@ -65,12 +99,12 @@ function evalPicks(){
     if(pickCpu[0] === pickPlayer[0]){
         endGame.push(resultOfGame[2]);        
         const returnOfBet = document.getElementById("alert");
-        returnOfBet.innerText = "Cpu selecionou " + pickCpu;
+        returnOfBet.innerText = "Robot selecionou " + pickCpu;
         const uWon = document.createElement("span");
         pickCpu = [];
         pickPlayer = []; 
         returnOfBet.appendChild(uWon);    
-        uWon.innerText = "Deu Draw(Empate)";
+        uWon.innerText = " Deu Draw(Empate)";
         
         
     }   
@@ -136,41 +170,54 @@ function evalPicks(){
 
 // const buttonRock = document.getElementById("buttonRock");
 function playSelectRock(){    
-    endGame = [];
+    endGame = [];    
     pickPlayer.push(humanPlays[0]);
+    document.getElementById("playerSelectRock").style.opacity = "1";
     cpuAnswer();
     const returnOfBet = document.getElementById("alert");
-    returnOfBet.innerText = "Cpu selecionou " + pickCpu;
+    returnOfBet.innerText = "Robot selecionou " + ' ' + pickCpu;
     const uWon = document.createElement("span");
     returnOfBet.appendChild(uWon);    
     evalPicks();
     uWon.innerText = endGame;
+    document.getElementById("playerSelectPaper").style.opacity = "0.1";
+    document.getElementById("playerSelectScissor").style.opacity = "0.1";
+    
     
 }
 // const buttonPaper = document.getElementById("buttonPaper");
 function playSelectPaper(){
     endGame = [];
+    
     pickPlayer.push(humanPlays[1]);  
+    document.getElementById("playerSelectPaper").style.opacity = "1";
     cpuAnswer();
     const returnOfBet = document.getElementById("alert");
-    returnOfBet.innerText = "Cpu selecionou " + pickCpu;
+    returnOfBet.innerText = "Robot selecionou " + ' ' + pickCpu;
     const uWon = document.createElement("span");
     returnOfBet.appendChild(uWon);    
     evalPicks();
     uWon.innerText = endGame;  
+    document.getElementById("playerSelectRock").style.opacity = "0.1";
+    document.getElementById("playerSelectScissor").style.opacity = "0.1";
 }
 
 // const buttonScissors = document.getElementById("buttonScissors");
 function playSelectScissor(){
     endGame = [];
+    
     pickPlayer.push(humanPlays[2]);
+    document.getElementById("playerSelectScissor").style.opacity = "1";
     cpuAnswer();
     const returnOfBet = document.getElementById("alert");
-    returnOfBet.innerText = "Cpu selecionou " + pickCpu;
+    returnOfBet.innerText = "Robot selecionou " + pickCpu;
     const uWon = document.createElement("span");
     returnOfBet.appendChild(uWon);    
     evalPicks();
-    uWon.innerText = endGame;      
+    uWon.innerText = endGame;     
+    document.getElementById("playerSelectRock").style.opacity = "0.1";
+    document.getElementById("playerSelectPaper").style.opacity = "0.1";
+    
 }
 
 

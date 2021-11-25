@@ -4,14 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/magiceight/reset.css">
+    <link rel="stylesheet" href="/assets/magiceight/style.css">
     <title>Magic 8 Ball</title>
 </head>
 <body>
-    <h1>A.M.A</h1>
-    <p>Sua resposta é: <span id="spanned"></span> </p>
-    <input type="button" value="Saber a resposta..." id="searchAnswer">
-    <audio src="/assets/audio/music.mp3" controls autoplay hidden></audio>
-    <script src="games-magic8.js"></script>
+    <section class="header">
+        <h1>A.M.A</h1>
+        <h2>Ask me anything...</h2>
+    </section>
+    <div id="askBox">
+        <span id="spanned"></span>
+        <input type="text" name="Digite sua pergunta aqui" value="Pergunte-me qualquer coisa..." id="ask">
+        <input type="button" value="Me dê a resposta" id="searchAnswer">
+    </div>
+   
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+         
+          <p id="victory"></p>
+        </div>
+      
+      </div>
+    <audio src="/assets/music/Highway To Hell.mp3" autoplay controls class="player"></audio> 
+    <script src="/assets/magiceight/games-magic8.js"></script>
 </body>
 </html>
 

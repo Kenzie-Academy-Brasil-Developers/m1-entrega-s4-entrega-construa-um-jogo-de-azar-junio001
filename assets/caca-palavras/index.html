@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/assets/caca-palavras/reset.css">
+    <link rel="stylesheet" href="/assets/caca-palavras/style.css">
+    <title>Caça-Palavras</title>
 </head>
+
 <body>
-    <input type="button" value="JOGAR AGORA !" id="play">
+    <section>
+        <h1>Jogo do caça-palavras</h1>
+        <h2>Um jogo bem simples e bom para passar o tempo exercitando suas habilidades de pensamento àgil</h2>
+        <p>Encontre as palavras:</p>
+        <div class="myList">
+            <p id="word01"></p>
+            <p id="word02"></p>
+            <p id="word03"></p>
+        </div>
+    </section>
+    <button>Jogar</button>
+    <button>Reset</button>
+
     <table id='table'>
         <tr>
             <td></td>
@@ -132,8 +146,8 @@
             <td></td>
         </tr>
     </table>
-    <div id="timer"></div>
-    <script src="script.js"></script>
+    <audio src="/assets/music/Feel Good Inc.mp3" autoplay controls class="player"></audio>
+    <script src="/assets/caca-palavras/script.js"></script>
 </body>
 
 </html>

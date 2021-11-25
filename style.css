@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Press+Start+2P&display=swap');
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    list-style: none;  
+    position: relative;     
+    color: seashell;    
+    margin: 0 auto;        
+    background-color: black;
+}
+h1{
+    font-size: 30px;
+    margin-top: 5px;
+}
+nav{
+    display: none;
+}
+
+header{
+    background-image: linear-gradient(30deg, #2e0441, #8236A3) ;
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    align-items: center;
+    height: 80px;
+}
+
+ul{
+    margin-right: 30px;
+    font-size: 12px;
+    display: flex;
+    flex-flow: row, wrap;
+    align-content: center;
+    justify-content: space-around;    
+    text-align: center;
+}
+li{
+   list-style: none;
+   
+}
+a{
+    text-decoration: none;
+}
+.games{
+    background-color: #8236A3;
+    text-align: center;
+    
+}
+.gamesTitle{
+    padding-top: 20px;
+}
+.playable{
+    margin-top: 15px;
+    width: 9rem;
+    opacity: 0.2;
+}
+.playable:hover{
+    opacity: 1;
+}
+figcaption{
+    margin-top: 15px;
+    font-size: 10px;
+}
+.developers{
+    background-color: #544391;
+    text-align: center;
+}
+.devTitle{
+    font-size: 24px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+article{
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+.profilePicture{
+    width: 120px;
+
+}
+.maintitle{ 
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-size: 30px;   
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+h2{
+    text-align: center;
+    margin: 5px;
+}
+@media screen and (min-width: 1024px){
+
+body{        
+    position: relative;
+    z-index: 1;    
+    margin: 0;
+}
+body::before{    
+    content: "";
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0; 
+    left: 0;
+    height: 100vh;
+    width: 100vw;    
+    opacity: .2; 
+    z-index: -1;    
+    background: url("/assets/img/maxresdefault.jpg");
+    background-size: cover;
+}
+header{
+    background-image: linear-gradient(30deg, #2e0441, #8236A3) ;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: 80px;
+}
+.games{
+    background-color: #8236a3;
+    text-align: center;    
+}
+.ourGames{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-around;
+    padding-bottom: 50px;
+}
+a{
+    text-decoration: none;
+    color: seashell;
+}
+.developers{
+    background-color: #54439188;
+    text-align: center;
+}
+.ourDevs{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 50vh;
+}
+.player{
+    opacity: 0.01;
+}
+
+}
