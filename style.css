@@ -65,6 +65,10 @@ figcaption{
     background-color: #544391;
     text-align: center;
 }
+img.ourDevs{
+    width: 50px;
+    height: 40px;
+}
 .devTitle{
     font-size: 24px;
     padding-top: 20px;
@@ -111,6 +115,7 @@ body::before{
     background-size: cover;
 }
 header{
+    background-size: 10px;
     background-image: linear-gradient(30deg, #2e0441, #8236A3) ;
     display: flex;
     flex-direction: row;
@@ -138,6 +143,10 @@ a{
 .developers{
     background-color: #54439188;
     text-align: center;
+}
+img.ourDevs{
+    width: 200px;
+    height: 150px;
 }
 .ourDevs{
     display: flex;

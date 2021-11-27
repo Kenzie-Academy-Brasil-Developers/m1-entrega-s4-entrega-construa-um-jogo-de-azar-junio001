@@ -56,7 +56,34 @@ let wordArray3 = word3.split('');
 let line = null;
 let line1 = null;
 let line2 = null;
-//criar o caça palavras
+
+
+//timer
+
+function startTimer(duration, display) {
+    let timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        display.textContent = minutes + ":" + seconds;
+        if (--timer < 0) {
+            timer = duration;
+        }
+        if (seconds < 1){
+            alert('acabou o tempo')
+            createWordFind();
+           
+        }
+    }, 1000);
+}
+window.onload = function () {
+    let duration = 10  ; 
+        display = document.querySelector('#timer'); 
+    startTimer(duration, display);
+};
+
 function createWordFind() {
 
     //criar o caça palavras
@@ -238,6 +265,7 @@ function validation2(event) {
 
 tabela.addEventListener('click', function (event) {
     let target = event.target
+    console.log(target.cellIndex)
     if (target.cellIndex == colunaWord && target.parentElement.rowIndex == linhaWord) {
         validation(event)
     } else if (target.cellIndex == colunaWord1 && target.parentElement.rowIndex == linhaWord1) {
@@ -247,11 +275,14 @@ tabela.addEventListener('click', function (event) {
     }
 })
 
+
 function vitoria() {
     if (totalPoints === 3) {
-        alert('ganhou')
+        alert('você achou as 3 palavras, pede música no fantastico')
     }
 }
+
+
 /*console.log(table.indexOf(line))
 console.log(line)
 console.log(line.indexOf(wordArray[0]))

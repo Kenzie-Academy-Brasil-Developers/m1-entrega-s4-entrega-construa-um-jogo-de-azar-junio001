@@ -10,7 +10,7 @@
     margin: 0;
 }
 .musicPlayer{
-    opacity: 0.01;
+    opacity: 1;
 }
 
 body {
@@ -160,6 +160,7 @@ h2{
     }
     
     body {
+        background: url("/assets/img/ak-47.gif")0 0 100 0;
         background-color: black;
         color: seashell;
         background-size: auto;
